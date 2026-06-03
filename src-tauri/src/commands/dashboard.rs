@@ -43,11 +43,33 @@ pub async fn get_dashboard() -> Result<DashboardData, String> {
     .await
     .map_err(|e| e.to_string())?;
 
-    let module_progress = vec![ModuleProgress {
-        module: "vocabulary".into(),
-        completed: vocab_done,
-        total: vocab_total,
-    }];
+    let grammar_total: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM grammar")
+        .fetch_one(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+    let grammar_done: i64 = sqlx::query_scalar(
+        "SELECT COUNT(*) FROM flashcard WHERE content_type = 'grammar' AND state >= 2",
+    )
+    .fetch_one(pool)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    let kanji_total: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM kanji")
+        .fetch_one(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+    let kanji_done: i64 = sqlx::query_scalar(
+        "SELECT COUNT(*) FROM flashcard WHERE content_type = 'kanji' AND state >= 2",
+    )
+    .fetch_one(pool)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    let module_progress = vec![
+        ModuleProgress { module: "vocabulary".into(), completed: vocab_done, total: vocab_total },
+        ModuleProgress { module: "grammar".into(), completed: grammar_done, total: grammar_total },
+        ModuleProgress { module: "kanji".into(), completed: kanji_done, total: kanji_total },
+    ];
 
     let week_ago = (chrono::Utc::now() - chrono::Duration::days(6))
         .format("%Y-%m-%d")
