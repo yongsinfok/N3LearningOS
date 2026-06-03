@@ -1,0 +1,22 @@
+[
+  {"id":"kanji-001","character":"安","onyomi":["アン"],"kunyomi":["やすい","やすらか"],"meaning":"peaceful, cheap","example_words":["安心","安全","安い"]},
+  {"id":"kanji-002","character":"意","onyomi":["イ"],"kunyomi":[],"meaning":"idea, mind","example_words":["意味","意見","注意"]},
+  {"id":"kanji-003","character":"思","onyomi":["シ"],"kunyomi":["おもう"],"meaning":"think","example_words":["思想","思い出","思考"]},
+  {"id":"kanji-004","character":"勉","onyomi":["ベン"],"kunyomi":["つとめる"],"meaning":"effort","example_words":["勉強","勤勉"]},
+  {"id":"kanji-005","character":"強","onyomi":["キョウ","ゴウ"],"kunyomi":["つよい","しいる"],"meaning":"strong","example_words":["勉強","強力","強制"]},
+  {"id":"kanji-006","character":"漢","onyomi":["カン"],"kunyomi":[],"meaning":"China, Chinese","example_words":["漢字","漢方","漢語"]},
+  {"id":"kanji-007","character":"字","onyomi":["ジ"],"kunyomi":["あざ"],"meaning":"character, letter","example_words":["漢字","文字","字引"]},
+  {"id":"kanji-008","character":"電","onyomi":["デン"],"kunyomi":[],"meaning":"electricity","example_words":["電話","電気","電車"]},
+  {"id":"kanji-009","character":"語","onyomi":["ゴ"],"kunyomi":["かたる"],"meaning":"language, word","example_words":["日本語","英語","語学"]},
+  {"id":"kanji-010","character":"物","onyomi":["ブツ","モツ"],"kunyomi":["もの"],"meaning":"thing, object","example_words":["動物","植物","食べ物"]},
+  {"id":"kanji-011","character":"食","onyomi":["ショク","ジキ"],"kunyomi":["たべる","くう"],"meaning":"eat, food","example_words":["食事","食べ物","食堂"]},
+  {"id":"kanji-012","character":"読","onyomi":["ドク","トク"],"kunyomi":["よむ"],"meaning":"read","example_words":["読書","読者","読み物"]},
+  {"id":"kanji-013","character":"書","onyomi":["ショ"],"kunyomi":["かく"],"meaning":"write","example_words":["辞書","書道","書く"]},
+  {"id":"kanji-014","character":"言","onyomi":["ゲン","ゴン"],"kunyomi":["いう","こと"],"meaning":"say, word","example_words":["言葉","意味","言論"]},
+  {"id":"kanji-015","character":"国","onyomi":["コク"],"kunyomi":["くに"],"meaning":"country","example_words":["外国","中国","国立"]},
+  {"id":"kanji-016","character":"会","onyomi":["カイ","エ"],"kunyomi":["あう"],"meaning":"meet, society","example_words":["会社","会話","会議"]},
+  {"id":"kanji-017","character":"話","onyomi":["ワ"],"kunyomi":["はなす","はなし"],"meaning":"talk, story","example_words":["電話","会話","話し合う"]},
+  {"id":"kanji-018","character":"新","onyomi":["シン"],"kunyomi":["あたらしい","あらた"],"meaning":"new","example_words":["新聞","新しい","新幹線"]},
+  {"id":"kanji-019","character":"聞","onyomi":["ブン","モン"],"kunyomi":["きく","きこえる"],"meaning":"hear, ask","example_words":["新聞","聞く","聞こえる"]},
+  {"id":"kanji-020","character":"時","onyomi":["ジ"],"kunyomi":["とき"],"meaning":"time","example_words":["時間","時代","時計"]}
+]

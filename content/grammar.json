@@ -1,0 +1,17 @@
+[
+  {"id":"gram-001","pattern":"〜なければならない","meaning":"必须〜","explanation":"表示义务。接続：V-ない + なければならない","examples":["宿題をしなければならない。","明日早く起きなければならない。"],"related":["〜なくてはいけない"],"source":"bundled"},
+  {"id":"gram-002","pattern":"〜てしまう","meaning":"〜完了；〜不小心","explanation":"表示动作完成或遗憾的心情。","examples":["本を読んでしまった。","財布を忘れてしまった。"],"related":["〜ておく"],"source":"bundled"},
+  {"id":"gram-003","pattern":"〜てもいい","meaning":"可以〜","explanation":"表示许可。","examples":["ここに座ってもいいです。","質問してもいいですか。"],"related":["〜てはいけない"],"source":"bundled"},
+  {"id":"gram-004","pattern":"〜てはいけない","meaning":"不可以〜","explanation":"表示禁止。","examples":["ここで遊んではいけない。","遅刻してはいけない。"],"related":["〜てもいい"],"source":"bundled"},
+  {"id":"gram-005","pattern":"〜ほうがいい","meaning":"最好〜","explanation":"表示建议或劝告。","examples":["早く寝たほうがいい。","医者に行ったほうがいいですよ。"],"related":["〜たほうがいい"],"source":"bundled"},
+  {"id":"gram-006","pattern":"〜たことがある","meaning":"曾经〜过","explanation":"表示过去的经验。","examples":["富士山に登ったことがある。","すしを食べたことがある。"],"source":"bundled"},
+  {"id":"gram-007","pattern":"〜ことができる","meaning":"能〜，会〜","explanation":"表示能力或可能。","examples":["日本語を話すことができる。","一人で行くことができる。"],"related":["〜られる"],"source":"bundled"},
+  {"id":"gram-008","pattern":"〜やすい／〜にくい","meaning":"容易〜／难〜","explanation":"表示动作的难易程度。","examples":["この本は読みやすい。","このペンは書きにくい。"],"source":"bundled"},
+  {"id":"gram-009","pattern":"〜そうだ（様態）","meaning":"好像〜","explanation":"表示从外观判断。","examples":["雨が降りそうだ。","おいしそうなケーキ。"],"related":["〜ようだ","〜らしい"],"source":"bundled"},
+  {"id":"gram-010","pattern":"〜ようだ／〜みたいだ","meaning":"好像〜","explanation":"表示主观推测、比喻。","examples":["風邪のようだ。","子供みたいな人だ。"],"related":["〜そうだ","〜らしい"],"source":"bundled"},
+  {"id":"gram-011","pattern":"〜らしい","meaning":"像是〜；据说〜","explanation":"表示有客观依据的推测或传闻。","examples":["彼は日本人らしい。","天気はいいらしい。"],"related":["〜そうだ","〜ようだ"],"source":"bundled"},
+  {"id":"gram-012","pattern":"〜ために（目的）","meaning":"为了〜","explanation":"表示目的。","examples":["日本語を勉強するために、学校に行く。","試験に合格するために頑張る。"],"source":"bundled"},
+  {"id":"gram-013","pattern":"〜のに（逆接）","meaning":"虽然〜但是〜","explanation":"表示与预期相反的结果。","examples":["勉強したのに、試験に落ちた。","安かったのに、買わなかった。"],"source":"bundled"},
+  {"id":"gram-014","pattern":"〜ば／〜たら／〜と","meaning":"如果〜","explanation":"条件形。ば（仮定）、たら（后）、と（必然结果）。","examples":["春になれば、花が咲く。","東京に着いたら、電話する。","右に曲がると、駅がある。"],"related":["〜なら"],"source":"bundled"},
+  {"id":"gram-015","pattern":"〜ても／〜でも","meaning":"即使〜也","explanation":"表示让步。","examples":["雨が降っても、行きます。","高くても、買います。"],"source":"bundled"}
+]
