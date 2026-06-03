@@ -1,7 +1,9 @@
 {
-  "version": "1.0.0",
-  "content_date": "2024-06-01",
+  "version": "1.1.0",
+  "content_date": "2024-06-15",
   "files": [
-    { "path": "vocabulary.json", "type": "vocabulary", "checksum": null }
+    { "path": "vocabulary.json", "type": "vocabulary", "checksum": null },
+    { "path": "grammar.json", "type": "grammar", "checksum": null },
+    { "path": "kanji.json", "type": "kanji", "checksum": null }
   ]
 }
