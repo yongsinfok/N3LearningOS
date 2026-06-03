@@ -39,6 +39,41 @@ pub struct ReviewHistory {
     pub created_at: String,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
+pub struct Grammar {
+    pub id: String,
+    pub pattern: String,
+    pub meaning: String,
+    pub explanation: String,
+    pub examples: String,
+    pub related: Option<String>,
+    pub source: String,
+    pub created_at: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
+pub struct Kanji {
+    pub id: String,
+    pub character: String,
+    pub onyomi: Option<String>,
+    pub kunyomi: Option<String>,
+    pub meaning: String,
+    pub stroke_svg: Option<String>,
+    pub example_words: Option<String>,
+    pub source: String,
+    pub created_at: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
+pub struct Note {
+    pub id: String,
+    pub content_id: String,
+    pub content_type: String,
+    pub content: String,
+    pub created_at: String,
+    pub updated_at: String,
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct PaginatedResult<T> {
     pub items: Vec<T>,
@@ -72,6 +107,8 @@ pub struct DailyActivity {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ImportResult {
     pub vocabulary_imported: usize,
+    pub grammar_imported: usize,
+    pub kanji_imported: usize,
     pub flashcards_created: usize,
     pub success: bool,
 }

@@ -14,6 +14,8 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
     if current_version.as_deref() == Some(&manifest.version) {
         return Ok(ImportResult {
             vocabulary_imported: 0,
+            grammar_imported: 0,
+            kanji_imported: 0,
             flashcards_created: 0,
             success: true,
         });
@@ -30,6 +32,8 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
 
     Ok(ImportResult {
         vocabulary_imported: vocab_count,
+        grammar_imported: 0,
+        kanji_imported: 0,
         flashcards_created: flashcard_count,
         success: true,
     })
