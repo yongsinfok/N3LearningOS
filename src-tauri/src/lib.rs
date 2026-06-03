@@ -58,6 +58,10 @@ pub fn run() {
             commands::vocabulary::get_due_flashcards,
             commands::vocabulary::review_flashcard,
             commands::dashboard::get_dashboard,
+            commands::search::global_search,
+            commands::notes::list_notes,
+            commands::notes::save_note,
+            commands::notes::delete_note,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
