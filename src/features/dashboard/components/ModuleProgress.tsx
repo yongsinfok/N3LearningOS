@@ -5,7 +5,7 @@ interface ModuleProgressProps {
   modules: ModuleProgressType[];
 }
 
-const labels: Record<string, string> = { vocabulary: "词汇" };
+const labels: Record<string, string> = { vocabulary: "词汇", grammar: "文法", kanji: "汉字" };
 
 export default function ModuleProgressBar({ modules }: ModuleProgressProps) {
   if (!modules.length) return null;

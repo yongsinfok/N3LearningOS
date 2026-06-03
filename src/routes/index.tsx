@@ -4,6 +4,11 @@ import DashboardPage from "@/features/dashboard/pages/DashboardPage";
 import VocabListPage from "@/features/vocabulary/pages/VocabListPage";
 import VocabDetailPage from "@/features/vocabulary/pages/VocabDetailPage";
 import VocabQuizPage from "@/features/vocabulary/pages/VocabQuizPage";
+import GrammarListPage from "@/features/grammar/pages/GrammarListPage";
+import GrammarDetailPage from "@/features/grammar/pages/GrammarDetailPage";
+import KanjiListPage from "@/features/kanji/pages/KanjiListPage";
+import KanjiDetailPage from "@/features/kanji/pages/KanjiDetailPage";
+import NotesPage from "@/features/notes/pages/NotesPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +18,11 @@ export const router = createBrowserRouter([
       { path: "vocabulary", element: <VocabListPage /> },
       { path: "vocabulary/:id", element: <VocabDetailPage /> },
       { path: "vocabulary/quiz", element: <VocabQuizPage /> },
+      { path: "grammar", element: <GrammarListPage /> },
+      { path: "grammar/:id", element: <GrammarDetailPage /> },
+      { path: "kanji", element: <KanjiListPage /> },
+      { path: "kanji/:id", element: <KanjiDetailPage /> },
+      { path: "notes", element: <NotesPage /> },
       { path: "*", element: <Navigate to="/" replace /> },
     ],
   },

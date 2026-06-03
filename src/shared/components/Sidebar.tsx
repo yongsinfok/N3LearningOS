@@ -8,6 +8,7 @@ const navItems = [
   { to: "/kanji", label: "汉字", icon: "🈳" },
   { to: "/reading", label: "阅读", icon: "📰" },
   { to: "/listening", label: "听力", icon: "🎧" },
+  { to: "/notes", label: "笔记", icon: "📝" },
   { to: "/exams", label: "模拟考", icon: "📋" },
 ];
 

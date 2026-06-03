@@ -62,8 +62,11 @@ export default function DashboardPage() {
 
       <div className="flex flex-wrap gap-2">
         <Button variant="outline" onClick={() => navigate("/vocabulary")}>📖 词汇</Button>
-        <Button variant="outline" disabled>📝 文法</Button>
-        <Button variant="outline" disabled>🈳 汉字</Button>
+        <Button variant="outline" onClick={() => navigate("/grammar")}>📝 文法</Button>
+        <Button variant="outline" onClick={() => navigate("/kanji")}>🈳 汉字</Button>
+        <Button variant="outline" disabled>📰 阅读</Button>
+        <Button variant="outline" disabled>🎧 听力</Button>
+        <Button variant="outline" disabled>📋 模拟考</Button>
       </div>
     </div>
   );
