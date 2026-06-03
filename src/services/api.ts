@@ -87,3 +87,79 @@ export function reviewFlashcard(
     duration_secs: durationSecs,
   });
 }
+
+// === Grammar ===
+export interface Grammar {
+  id: string;
+  pattern: string;
+  meaning: string;
+  explanation: string;
+  examples: string;
+  related: string | null;
+  source: string;
+  created_at: string;
+}
+
+export function listGrammar(page?: number, search?: string, pageSize?: number): Promise<PaginatedResult<Grammar>> {
+  return invoke("list_grammar", { page, search, page_size: pageSize });
+}
+
+export function getGrammarDetail(id: string): Promise<Grammar> {
+  return invoke("get_grammar_detail", { id });
+}
+
+// === Kanji ===
+export interface Kanji {
+  id: string;
+  character: string;
+  onyomi: string | null;
+  kunyomi: string | null;
+  meaning: string;
+  stroke_svg: string | null;
+  example_words: string | null;
+  source: string;
+  created_at: string;
+}
+
+export function listKanji(page?: number, search?: string, pageSize?: number): Promise<PaginatedResult<Kanji>> {
+  return invoke("list_kanji", { page, search, page_size: pageSize });
+}
+
+export function getKanjiDetail(id: string): Promise<Kanji> {
+  return invoke("get_kanji_detail", { id });
+}
+
+// === Search ===
+export interface SearchResult {
+  id: string;
+  content_type: "vocabulary" | "grammar" | "kanji";
+  title: string;
+  subtitle: string;
+  match_field: string;
+}
+
+export function globalSearch(query: string): Promise<SearchResult[]> {
+  return invoke("global_search", { query });
+}
+
+// === Notes ===
+export interface Note {
+  id: string;
+  content_id: string;
+  content_type: string;
+  content: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export function listNotes(contentId?: string, contentType?: string): Promise<Note[]> {
+  return invoke("list_notes", { content_id: contentId, content_type: contentType });
+}
+
+export function saveNote(contentId: string, contentType: string, content: string): Promise<string> {
+  return invoke("save_note", { content_id: contentId, content_type: contentType, content });
+}
+
+export function deleteNote(id: string): Promise<void> {
+  return invoke("delete_note", { id });
+}
