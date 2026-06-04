@@ -129,6 +129,44 @@ export function getKanjiDetail(id: string): Promise<Kanji> {
   return invoke("get_kanji_detail", { id });
 }
 
+// === Reading ===
+export interface Segment {
+  t: string;
+  f?: string;
+  k: boolean;
+}
+
+export interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  correct_index: number;
+  explanation: string;
+}
+
+export interface Reading {
+  id: string;
+  title: string;
+  segments: string;    // JSON string
+  questions: string | null;
+  source: string;
+  level: string;
+  is_bookmarked: boolean;
+  created_at: string;
+}
+
+export function listReading(page?: number, search?: string, pageSize?: number): Promise<PaginatedResult<Reading>> {
+  return invoke("list_reading", { page, search, page_size: pageSize });
+}
+
+export function getReadingDetail(id: string): Promise<Reading> {
+  return invoke("get_reading_detail", { id });
+}
+
+export function lookupWord(word: string): Promise<Vocabulary | null> {
+  return invoke("lookup_word", { word });
+}
+
 // === Search ===
 export interface SearchResult {
   id: string;

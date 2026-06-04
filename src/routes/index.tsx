@@ -8,6 +8,8 @@ import GrammarListPage from "@/features/grammar/pages/GrammarListPage";
 import GrammarDetailPage from "@/features/grammar/pages/GrammarDetailPage";
 import KanjiListPage from "@/features/kanji/pages/KanjiListPage";
 import KanjiDetailPage from "@/features/kanji/pages/KanjiDetailPage";
+import ReadingListPage from "@/features/reading/pages/ReadingListPage";
+import ReadingDetailPage from "@/features/reading/pages/ReadingDetailPage";
 import NotesPage from "@/features/notes/pages/NotesPage";
 
 export const router = createBrowserRouter([
@@ -22,6 +24,8 @@ export const router = createBrowserRouter([
       { path: "grammar/:id", element: <GrammarDetailPage /> },
       { path: "kanji", element: <KanjiListPage /> },
       { path: "kanji/:id", element: <KanjiDetailPage /> },
+      { path: "reading", element: <ReadingListPage /> },
+      { path: "reading/:id", element: <ReadingDetailPage /> },
       { path: "notes", element: <NotesPage /> },
       { path: "*", element: <Navigate to="/" replace /> },
     ],

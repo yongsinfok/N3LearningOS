@@ -65,6 +65,35 @@ pub struct Kanji {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
+pub struct Reading {
+    pub id: String,
+    pub title: String,
+    pub segments: String,
+    pub questions: Option<String>,
+    pub source: String,
+    pub level: String,
+    pub is_bookmarked: bool,
+    pub created_at: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Segment {
+    pub t: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub f: Option<String>,
+    pub k: bool,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Question {
+    pub id: String,
+    pub question: String,
+    pub options: Vec<String>,
+    pub correct_index: u8,
+    pub explanation: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
 pub struct Note {
     pub id: String,
     pub content_id: String,
@@ -109,6 +138,7 @@ pub struct ImportResult {
     pub vocabulary_imported: usize,
     pub grammar_imported: usize,
     pub kanji_imported: usize,
+    pub reading_imported: usize,
     pub flashcards_created: usize,
     pub success: bool,
 }
