@@ -5,16 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useListeningList } from "../hooks/useListening";
+import ImportButton from "@/features/import/components/ImportButton";
 
 export default function ListeningListPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useListeningList(page, search || undefined);
+  const { data, isLoading, refetch } = useListeningList(page, search || undefined);
   const navigate = useNavigate();
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold">听力</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">听力</h1>
+        <ImportButton contentType="listening" onImportComplete={() => refetch()} />
+      </div>
       <Input
         placeholder="搜索课程..."
         value={search}

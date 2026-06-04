@@ -5,16 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useKanjiList } from "../hooks/useKanji";
 import KanjiGrid from "../components/KanjiGrid";
+import ImportButton from "@/features/import/components/ImportButton";
 
 export default function KanjiListPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useKanjiList(page, search || undefined);
+  const { data, isLoading, refetch } = useKanjiList(page, search || undefined);
   const navigate = useNavigate();
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold">汉字</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">汉字</h1>
+        <ImportButton contentType="kanji" onImportComplete={() => refetch()} />
+      </div>
 
       <Input
         placeholder="搜索汉字..."

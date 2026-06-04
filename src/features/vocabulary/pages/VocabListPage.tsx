@@ -5,18 +5,22 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useNavigate } from "react-router-dom";
 import { useVocabList } from "../hooks/useVocabulary";
 import VocabRow from "../components/VocabRow";
+import ImportButton from "@/features/import/components/ImportButton";
 
 export default function VocabListPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useVocabList(page, search || undefined);
+  const { data, isLoading, refetch } = useVocabList(page, search || undefined);
   const navigate = useNavigate();
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">词汇</h1>
-        <Button onClick={() => navigate("/vocabulary/quiz")}>开始测验</Button>
+        <div className="flex gap-2">
+          <ImportButton contentType="vocabulary" onImportComplete={() => refetch()} />
+          <Button onClick={() => navigate("/vocabulary/quiz")}>开始测验</Button>
+        </div>
       </div>
       <Input
         placeholder="搜索词汇..."

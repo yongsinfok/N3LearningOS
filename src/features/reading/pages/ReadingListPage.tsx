@@ -5,16 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useReadingList } from "../hooks/useReading";
+import ImportButton from "@/features/import/components/ImportButton";
 
 export default function ReadingListPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useReadingList(page, search || undefined);
+  const { data, isLoading, refetch } = useReadingList(page, search || undefined);
   const navigate = useNavigate();
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold">阅读</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">阅读</h1>
+        <ImportButton contentType="reading" onImportComplete={() => refetch()} />
+      </div>
       <Input
         placeholder="搜索文章..."
         value={search}
