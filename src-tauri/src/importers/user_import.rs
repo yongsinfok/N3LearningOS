@@ -1,5 +1,5 @@
 use crate::database::get_pool;
-use crate::models::{Grammar, ImportFileResult, ImportMode, Kanji, Listening, Reading, Vocabulary};
+use crate::models::{ImportFileResult, ImportMode};
 use std::path::Path;
 
 macro_rules! insert_or_mode {
