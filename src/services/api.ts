@@ -167,6 +167,37 @@ export function lookupWord(word: string): Promise<Vocabulary | null> {
   return invoke("lookup_word", { word });
 }
 
+// === Listening ===
+export interface TranscriptEntry {
+  start: number;
+  end: number;
+  text: string;
+}
+
+export interface Listening {
+  id: string;
+  title: string;
+  audio_file: string;
+  transcript: string;    // JSON
+  questions: string | null;
+  source: string;
+  level: string;
+  is_bookmarked: boolean;
+  created_at: string;
+}
+
+export function listListening(page?: number, search?: string, pageSize?: number): Promise<PaginatedResult<Listening>> {
+  return invoke("list_listening", { page, search, page_size: pageSize });
+}
+
+export function getListeningDetail(id: string): Promise<Listening> {
+  return invoke("get_listening_detail", { id });
+}
+
+export function getAudioData(audioFile: string): Promise<number[]> {
+  return invoke("get_audio_data", { audio_file: audioFile });
+}
+
 // === Search ===
 export interface SearchResult {
   id: string;
