@@ -19,6 +19,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
             grammar_imported: 0,
             kanji_imported: 0,
             reading_imported: 0,
+            listening_imported: 0,
             flashcards_created: 0,
             success: true,
         });
@@ -56,6 +57,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
         grammar_imported: grammar_count,
         kanji_imported: kanji_count,
         reading_imported: reading_count,
+        listening_imported: 0,
         flashcards_created: total_fc,
         success: true,
     })
