@@ -232,3 +232,46 @@ export function saveNote(contentId: string, contentType: string, content: string
 export function deleteNote(id: string): Promise<void> {
   return invoke("delete_note", { id });
 }
+
+// === Import ===
+export interface ImportFileResult {
+  imported: number;
+  overwritten: number;
+  errors: string[];
+  total_in_file: number;
+}
+
+export function importVocabularyFromFile(
+  filePath: string,
+  mode: "Append" | "Overwrite",
+): Promise<ImportFileResult> {
+  return invoke("import_vocabulary_from_file", { filePath, mode });
+}
+
+export function importGrammarFromFile(
+  filePath: string,
+  mode: "Append" | "Overwrite",
+): Promise<ImportFileResult> {
+  return invoke("import_grammar_from_file", { filePath, mode });
+}
+
+export function importKanjiFromFile(
+  filePath: string,
+  mode: "Append" | "Overwrite",
+): Promise<ImportFileResult> {
+  return invoke("import_kanji_from_file", { filePath, mode });
+}
+
+export function importReadingFromFile(
+  filePath: string,
+  mode: "Append" | "Overwrite",
+): Promise<ImportFileResult> {
+  return invoke("import_reading_from_file", { filePath, mode });
+}
+
+export function importListeningFromFile(
+  filePath: string,
+  mode: "Append" | "Overwrite",
+): Promise<ImportFileResult> {
+  return invoke("import_listening_from_file", { filePath, mode });
+}
