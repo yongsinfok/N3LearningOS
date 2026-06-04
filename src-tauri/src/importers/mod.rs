@@ -2,6 +2,7 @@ pub mod manifest;
 pub mod vocabulary;
 pub mod grammar;
 pub mod kanji;
+pub mod reading;
 
 use crate::models::ImportResult;
 use std::path::Path;
@@ -17,6 +18,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
             vocabulary_imported: 0,
             grammar_imported: 0,
             kanji_imported: 0,
+            reading_imported: 0,
             flashcards_created: 0,
             success: true,
         });
@@ -40,6 +42,10 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
     let kanji_fc = kanji::create_kanji_flashcards()
         .map_err(|e| format!("Kanji flashcard failed: {}", e))?;
 
+    let reading = reading::import_reading(content_dir)?;
+    let reading_count = reading::save_reading_to_db(&reading)
+        .map_err(|e| format!("Reading DB insert failed: {}", e))?;
+
     set_imported_version(&manifest.version)
         .map_err(|e| format!("Failed to save version: {}", e))?;
 
@@ -49,6 +55,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
         vocabulary_imported: vocab_count,
         grammar_imported: grammar_count,
         kanji_imported: kanji_count,
+        reading_imported: reading_count,
         flashcards_created: total_fc,
         success: true,
     })
