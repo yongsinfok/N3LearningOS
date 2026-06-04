@@ -4,3 +4,4 @@ pub mod kanji;
 pub mod search;
 pub mod notes;
 pub mod dashboard;
+pub mod reading;
