@@ -72,11 +72,18 @@ pub async fn get_dashboard() -> Result<DashboardData, String> {
     // Reading has no flashcards — track via bookmarks in future
     let reading_done: i64 = 0;
 
+    let listening_total: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM listening")
+        .fetch_one(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+    let listening_done: i64 = 0;
+
     let module_progress = vec![
         ModuleProgress { module: "vocabulary".into(), completed: vocab_done, total: vocab_total },
         ModuleProgress { module: "grammar".into(), completed: grammar_done, total: grammar_total },
         ModuleProgress { module: "kanji".into(), completed: kanji_done, total: kanji_total },
         ModuleProgress { module: "reading".into(), completed: reading_done, total: reading_total },
+        ModuleProgress { module: "listening".into(), completed: listening_done, total: listening_total },
     ];
 
     let week_ago = (chrono::Utc::now() - chrono::Duration::days(6))
