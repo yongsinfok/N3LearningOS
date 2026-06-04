@@ -25,6 +25,7 @@ fn get_content_dir() -> PathBuf {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
         .setup(|_app| {
             let app_dir = get_app_dir();
             let content_dir = get_content_dir();
@@ -72,6 +73,11 @@ pub fn run() {
             commands::listening::list_listening,
             commands::listening::get_listening_detail,
             commands::listening::get_audio_data,
+            commands::import::import_vocabulary_from_file,
+            commands::import::import_grammar_from_file,
+            commands::import::import_kanji_from_file,
+            commands::import::import_reading_from_file,
+            commands::import::import_listening_from_file,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

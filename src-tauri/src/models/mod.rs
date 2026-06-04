@@ -153,6 +153,20 @@ pub struct DailyActivity {
     pub cards_reviewed: i64,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum ImportMode {
+    Append,
+    Overwrite,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct ImportFileResult {
+    pub imported: usize,
+    pub overwritten: usize,
+    pub errors: Vec<String>,
+    pub total_in_file: usize,
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ImportResult {
     pub vocabulary_imported: usize,

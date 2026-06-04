@@ -4,6 +4,10 @@ pub mod grammar;
 pub mod kanji;
 pub mod reading;
 pub mod listening;
+pub mod csv_parser;
+pub mod json_parser;
+pub mod apkg_parser;
+pub mod user_import;
 
 use crate::models::ImportResult;
 use std::path::Path;
