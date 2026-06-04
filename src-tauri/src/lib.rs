@@ -38,11 +38,12 @@ pub fn run() {
                     match crate::importers::run_initial_import(&content_dir) {
                         Ok(result) => {
                             println!(
-                                "Import: {} vocabulary, {} grammar, {} kanji, {} reading, {} flashcards",
+                                "Import: {} vocabulary, {} grammar, {} kanji, {} reading, {} listening, {} flashcards",
                                 result.vocabulary_imported,
                                 result.grammar_imported,
                                 result.kanji_imported,
                                 result.reading_imported,
+                                result.listening_imported,
                                 result.flashcards_created
                             );
                         }
@@ -68,6 +69,9 @@ pub fn run() {
             commands::reading::list_reading,
             commands::reading::get_reading_detail,
             commands::reading::lookup_word,
+            commands::listening::list_listening,
+            commands::listening::get_listening_detail,
+            commands::listening::get_audio_data,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

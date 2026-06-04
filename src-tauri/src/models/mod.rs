@@ -94,6 +94,26 @@ pub struct Question {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
+pub struct Listening {
+    pub id: String,
+    pub title: String,
+    pub audio_file: String,
+    pub transcript: String,
+    pub questions: Option<String>,
+    pub source: String,
+    pub level: String,
+    pub is_bookmarked: bool,
+    pub created_at: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct TranscriptEntry {
+    pub start: f64,
+    pub end: f64,
+    pub text: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, sqlx::FromRow)]
 pub struct Note {
     pub id: String,
     pub content_id: String,
@@ -139,6 +159,7 @@ pub struct ImportResult {
     pub grammar_imported: usize,
     pub kanji_imported: usize,
     pub reading_imported: usize,
+    pub listening_imported: usize,
     pub flashcards_created: usize,
     pub success: bool,
 }

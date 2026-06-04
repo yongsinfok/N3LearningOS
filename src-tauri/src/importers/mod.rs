@@ -3,6 +3,7 @@ pub mod vocabulary;
 pub mod grammar;
 pub mod kanji;
 pub mod reading;
+pub mod listening;
 
 use crate::models::ImportResult;
 use std::path::Path;
@@ -19,6 +20,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
             grammar_imported: 0,
             kanji_imported: 0,
             reading_imported: 0,
+            listening_imported: 0,
             flashcards_created: 0,
             success: true,
         });
@@ -46,6 +48,10 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
     let reading_count = reading::save_reading_to_db(&reading)
         .map_err(|e| format!("Reading DB insert failed: {}", e))?;
 
+    let listening = listening::import_listening(content_dir)?;
+    let listening_count = listening::save_listening_to_db(&listening)
+        .map_err(|e| format!("Listening DB insert failed: {}", e))?;
+
     set_imported_version(&manifest.version)
         .map_err(|e| format!("Failed to save version: {}", e))?;
 
@@ -56,6 +62,7 @@ pub fn run_initial_import(content_dir: &Path) -> Result<ImportResult, String> {
         grammar_imported: grammar_count,
         kanji_imported: kanji_count,
         reading_imported: reading_count,
+        listening_imported: listening_count,
         flashcards_created: total_fc,
         success: true,
     })
